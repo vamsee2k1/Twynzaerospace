@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+</head>
+<body>
+    
+    <header>
+        <div class="wrapper">
+            <!-- Navigation with scroll animations -->
+            <nav data-aos="fade-down" data-aos-duration="800">
+                <ul class="left-nav" data-aos="fade-right" data-aos-delay="100">
+                    <li>
+                        <!-- Book Now opens modal -->
+                        <a href="#" class="booknow" id="bookNowBtn">Book Now</a>
+                    </li>
+                </ul>
+                
+                
+                <!-- Centered Logo -->
+                <div class="logo" style="position: absolute; left: 50%; transform: translateX(-50%);">
+                    <img src="IMAGES/Logo_Twynz_4 1.svg" alt="" data-aos="zoom-in" data-aos-delay="200">
+                </div>
+                
+                <ul class="right-nav" data-aos="fade-left" data-aos-delay="100">
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Hero section with animations -->
+            <div class="hero-section">
+                <div class="middle" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 data-aos="fade-up" data-aos-delay="200">Innovating Air Travel</h1>
+                    <p data-aos="fade-up" data-aos-delay="400">
+                        Welcome to TWYNZ Aerospace, where innovation meets the sky. Discover our cutting-edge eVTOL designs that are set to revolutionize urban mobility.
+                    </p>
+                    <a href="#services" class="btn light" data-aos="fade-right" data-aos-delay="600">Learn More</a>
+                    <a href="#services" class="btn light" data-aos="fade-left" data-aos-delay="800">View Services</a>
+                </div>
+                
+                <!-- Background image remains static -->
+                <div class="background">
+                    <img src="IMAGES/Futuristic Drone Over Luminous Urban Cityscape at Twilight 1.png" alt="">
+                </div>
+            </div>
+        </div>
+    
+            <!-- Modal for Book Now -->
+        <!-- Modal for Book Now -->
+    <!-- Modal for Book Now -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="bookingForm" action="mailto:twynzaerospace.ltd@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Type:</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="Consultation">Consultation</option>
+                        <option value="Product Demo">Product Demo</option>
+                        <option value="Support">Support</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointmentDetails">Details:</label>
+                    <textarea id="appointmentDetails" name="appointmentDetails" rows="3" placeholder="Provide additional details or requests" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Booking Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Thank You!</h2>
+            <p>Your booking request has been received. Please wait for confirmation from our team.</p>
+            <button class="close-btn" onclick="closeConfirmationModal()">Close</button>
+        </div>
+    </div>
+
+
+    </div>
+    </header>
+    
+    
+    
+    
+        <!-- END OF HEADER SECTION -->
+
+        <div class="wrapper" id="services" data-aos="fade-up" data-aos-duration="1000">
+            <div class="up">
+                <p class="subheading" data-aos="fade-up" data-aos-delay="100">Innovative</p>
+                <h1 data-aos="fade-up" data-aos-delay="200">Revolutionizing Urban Air Mobility with eVTOL</h1>
+                <p class="description" data-aos="fade-up" data-aos-delay="300">
+                    TWYNZ Aerospace is at the forefront of eVTOL technology, designed to transform the way we navigate urban landscapes. Our cutting-edge aircraft promise to deliver efficiency, sustainability, and safety.
+                </p>
+            </div>
+            
+            <div class="content">
+                <!-- Left Section with Image and Text -->
+                <div class="section left" data-aos="fade-right" data-aos-delay="400">
+                    <img src="IMAGES/3d kinda box.png" alt="" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text" data-aos="fade-up" data-aos-delay="600">
+                        <h3>eVTOL Aircraft Design</h3>
+                        <p>Innovating the future of urban air mobility</p>
+                    </div>
+                </div>
+                
+                <!-- Right Section with Image and Text -->
+                <div class="section right" data-aos="fade-left" data-aos-delay="400">
+                    <img src="IMAGES/3d kinda box.png" alt="" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text" data-aos="fade-up" data-aos-delay="600">
+                        <h3>Mechanical Design Consulting</h3>
+                        <p>Expert consulting for diverse industries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+         <!-- END OF CONCULTING SECTION -->
+
+         <div class="wrapper" id="about" data-aos="fade-up" data-aos-duration="1000">
+            <section class="innovating-flight">
+                <!-- Left Text Section -->
+                <div class="left" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 data-aos="fade-up" data-aos-delay="100">Innovating Flight</h2>
+                    <h3 data-aos="fade-up" data-aos-delay="200">Revolutionizing Transportation with eVTOL Technology</h3>
+                    <p data-aos="fade-up" data-aos-delay="300">
+                        Twynz Aerospace Ltd. is an emerging aerospace company dedicated to revolutionizing air travel with advanced electric vertical take-off and landing (eVTOL) aircraft. Based in London, we focus on delivering sustainable and efficient air transport solutions that meet the demands of modern aviation. In addition to our eVTOL innovations, we provide expert mechanical design consulting across aerospace, automotive, robotics, and healthcare industries, ensuring that we contribute to a greener future across various sectors.
+                    </p>
+                </div>
+                
+                <!-- Right Image Section -->
+                <div class="right" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="IMAGES/drone2.png" alt="">
+                </div>
+            </section>
+        </div>
+        
+        
+        
+        
+
+         <!-- END OF INNOVATING SECTION -->
+
+         <div class="wrapper contact-section" id="contact" data-aos="fade-up" data-aos-duration="1000">
+            <div class="left" data-aos="fade-right" data-aos-delay="100">
+                <img src="IMAGES/office.png" alt="Office Image" data-aos="zoom-in" data-aos-delay="300">
+                <h2 data-aos="zoom-in" data-aos-delay="200">Get in touch – Elevating transportation for tomorrow, <br>
+                    TODAY </h2>
+            </div>
+            
+            <div class="right" data-aos="fade-left" data-aos-delay="100">
+                <h2 data-aos="fade-up" data-aos-delay="200">CONTACT US</h2>
+                
+                <!-- Contact Form Fields -->
+                <form action="#">
+                    <input type="text" placeholder="NAME*" data-aos="fade-up" data-aos-delay="300">
+                </form>
+                <form action="#">
+                    <input type="text" placeholder="EMAIL*" data-aos="fade-up" data-aos-delay="400">
+                </form>
+                <form action="#">
+                    <input type="text" placeholder="SUBJECT*" data-aos="fade-up" data-aos-delay="500">
+                </form>
+                <form action="#">
+                    <textarea placeholder="MESSAGE*" rows="5" data-aos="fade-up" data-aos-delay="600"></textarea>
+                </form>
+                
+                <button class="submit-btn" data-aos="zoom-in" data-aos-delay="700">Submit</button>
+            </div>
+        </div>
+        
+        
+        
+
+         <!-- END OF CONTACT SECTION -->
+
+         <div class="inventors" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Header Section with Titles -->
+            <div class="header" data-aos="fade-down" data-aos-delay="100">
+                <h2>INNOVATION AT WORK</h2>
+                <h4>Meet the visionaries behind TWYNZ</h4>
+            </div>
+        
+            <!-- Profile 1 -->
+            <div class="profile" data-aos="flip-left" data-aos-delay="200">
+                <div class="image-container">
+                    <img src="IMAGES/ananth photo.png" alt="">
+                    <div class="overlay">
+                        <p>Ananth - Visionary leader at TWYNZ Aerospace, spearheading urban air mobility solutions.</p>
+                    </div>
+                </div>
+                <h4>A.K. Ananth Krishna<br><span>Founder and Chief Executive Officer</span></h4>
+            </div>
+        
+            <!-- Profile 2 -->
+            <div class="profile" data-aos="flip-up" data-aos-delay="300">
+                <div class="image-container">
+                    <img src="IMAGES/sairam photo.png" alt="">
+                    <div class="overlay">
+                        <p>Ram - Chief Operations Officer ensuring operational excellence across all TWYNZ projects.</p>
+                    </div>
+                </div>
+                <h4>Sairam Lattipilli.<br><span>Chief Operations Officer</span></h4>
+            </div>
+        
+            <!-- Profile 3 -->
+            <div class="profile" data-aos="flip-right" data-aos-delay="400">
+                <div class="image-container">
+                    <img src="IMAGES/bhargav photo.png" alt="">
+                    <div class="overlay">
+                        <p>Bhargava - Drives financial strategy, risk management, investor relations, and business growth. at TWYNZ.</p>
+                    </div>
+                </div>
+                <h4>Bhargava.T<br><span>Chief Futures Officer</span></h4>
+            </div>
+        </div>
+        
+        
+
+        <!-- END OF INVENTORS -->
+
+        <div class="FOOTER" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Centered Logo at the Top -->
+            <div class="logo-center" data-aos="zoom-in" data-aos-delay="100">
+                <img src="IMAGES/Logo_Twynz_4 1.svg" alt="TWYNZ Logo">
+            </div>
+        
+            <!-- Left Section: Address and Contact Info -->
+            <div class="footer-section left-links" data-aos="fade-right" data-aos-delay="200">
+                <h3>Address</h3>
+                <p><a href="https://www.google.com/maps/place/London,+UK" target="_blank">London, UK</a></p>
+                <h3>Contacts</h3>
+                <p><a href="mailto:twynzaerospace.ltd@gmail.com">twynzaerospace.ltd@gmail.com</a></p>
+                <div class="social">
+                    <a href="#"><img src="IMAGES/imstagram.svg" alt="Instagram"></a>
+                    <!-- Add other social icons here as needed -->
+                </div>
+            </div>
+            
+            
+    
+            <!-- Center Section: Hours -->
+            <!-- <div class="footer-section timings" data-aos="fade-up" data-aos-delay="300">
+                <h3>Hours</h3>
+                <p>Monday 9:00am – 10:00pm</p>
+                <p>Tuesday 9:00am – 10:00pm</p>
+                <p>Wednesday 9:00am – 10:00pm</p>
+                <p>Thursday 9:00am – 10:00pm</p>
+                <p>Friday 9:00am – 10:00pm</p>
+                <p>Saturday 9:00am – 6:00pm</p>
+                <p>Sunday 9:00am – 12:00pm</p>
+            </div> -->
+        
+            <!-- Right Section: Navigation Links -->
+            <div class="footer-section right-links" data-aos="fade-left" data-aos-delay="200">
+                <ul class="links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Projects</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+        
+            <!-- Footer Bottom Section: Copyright and Policies -->
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="300">
+                <p>© 2024 Twynz Aerospace Ltd. All rights reserved.</p>
+                <p class="policies">
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Cookies Settings</a>
+                </p>
+            </div>
+        </div>
+        
+       
+        
+
+        <!-- END  of FOOTER -->
+
+        <!-- AOS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Duration of animations in milliseconds
+    easing: 'ease-in-out', // Type of easing for animations
+    once: true, // Whether animation should happen only once - while scrolling down
+  });
+</script>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,958 @@
+:root {
+  --yellow-color: #E7B841; 
+  --lightblue-color: #4CC5E6; 
+  --lightwhite: #C8E7F6;
+  --skyeblue-color: #35C7FF;
+  --bluemainpage-color: #32ADE6; 
+  --whitemainpage-color: #B9D6E1; 
+  --whitemainpage2-color: #B2E5FC; 
+  --mainpageblueback-color: #164774; 
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;     
+  /* EB GARAMOND-HEADINGS,  GARAMOND - Texts  */
+  background: linear-gradient(135deg, var(--mainpageblueback-color), var(--whitemainpage2-color));
+}
+
+/* Start of Header */
+
+/* General Gradient Text Styling */
+/* Apply gradient text styling only to specific elements */
+h1, h2, h3, h4, h5, h6, p, a, .gradient-text {
+  background: linear-gradient(to right, #E7B841, #4CC5E6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Wrapper styling */
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Nav styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Left Navigation (Book Now Button) */
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Basic Book Now button styles */
+.left-nav .booknow {
+  background-color: #E7B841; /* Base color for Book Now button */
+  color: black;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Include transform transition for smooth scaling */
+  transform-origin: center; /* Scale from the center */
+}
+
+/* Hover effect for Book Now button */
+.left-nav .booknow:hover {
+  background-color: #4CC5E6; /* Different color on hover */
+  color: #FFFFFF;
+  transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CC5E6;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #35A7D6;
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Confirmation Modal Styles */
+#confirmationModal .modal-content {
+  text-align: center;
+}
+
+.close-btn {
+  background-color: #E7B841;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #dba637;
+  transform: scale(1.05);
+}
+
+
+
+/* Remove list dots and style links */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Gradient Text for Navigation Links */
+nav ul li a {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 15px;
+  transition: background-color 0.3s ease;
+  background: linear-gradient(to right, #E7B841, #4CC5E6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul li a:hover {
+  color: #FFFFFF; /* Solid color on hover */
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Center Logo */
+nav .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav .logo img {
+  height: 80px; /* Adjust logo size as needed */
+}
+
+/* Hero section styling */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Hero Section Title and Paragraph */
+.hero-section .middle h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-section .middle p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+/* Button Styling in Hero Section */
+.hero-section .btn.light {
+  background: linear-gradient(to right, #E7B841, #4CC5E6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 2px solid #E7B841; /* Border for button */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section .btn.light:hover {
+  background-color: #4CC5E6; /* Solid color on hover */
+  color: #FFFFFF;
+  border-color: #4CC5E6;
+}
+
+/* Background image styling */
+.hero-section .background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(70%);
+}
+
+/* modal */
+
+/* Modal container */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form styling within modal */
+.modal-content form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.modal-content form input,
+.modal-content form textarea,
+.modal-content form button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.modal-content form button {
+  background-color: #35C7FF;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content form button:hover {
+  background-color: #29A6D6;
+}
+
+/* end of modal */
+/* END of HEADER */
+
+/* General page background */
+/* Background with main color and spotlight effects */
+/* Background with main color and enhanced spotlight effects */
+body {
+  background: #0F345E; /* Primary dark blue background color */
+  background: 
+      radial-gradient(circle at 20% 30%, rgba(50, 173, 230, 0.4), transparent 25%),
+      radial-gradient(circle at 80% 20%, rgba(185, 214, 225, 0.4), transparent 25%),
+      radial-gradient(circle at 30% 70%, rgba(178, 229, 252, 0.3), transparent 25%),
+      radial-gradient(circle at 70% 80%, rgba(53, 199, 255, 0.3), transparent 25%),
+      /* Additional Spotlights */
+      radial-gradient(circle at 50% 50%, rgba(50, 173, 230, 0.15), transparent 30%),
+      radial-gradient(circle at 15% 85%, rgba(185, 214, 225, 0.2), transparent 30%),
+      radial-gradient(circle at 85% 75%, rgba(178, 229, 252, 0.25), transparent 30%),
+      radial-gradient(circle at 50% 20%, rgba(53, 199, 255, 0.15), transparent 30%),
+      #0F345E; /* Fallback color */
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+
+
+/* Center text in the 'up' section */
+.up {
+  text-align: center;
+  padding: 60px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.up .subheading {
+  padding: 10px ;
+  font-size: 35px;
+  color: #0c0c0c;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.up h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #0c0c0c;
+  margin: 10px 0;
+}
+
+.up .description {
+  font-size: 20px;
+  color: #0c0c0c;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Main content styling */
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 100px;
+  padding: 20px 20px;
+}
+
+.section {
+  text-align: center;
+  width: 250px;
+}
+
+.section img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.section .text h3 {
+  font-size: 28px;
+  color: #0c0c0c;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.section .text p {
+  font-size: 18px;
+  color: #0c0c0c;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .section {
+      width: 100%;
+  }
+}
+
+
+/* END OF INNOVATIVE SECTION */
+
+/* Section styling for the innovating flight section */
+.innovating-flight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px; /* Increased padding for a larger section */
+  background: linear-gradient(135deg, #3a3d65, #57a7b6);
+  border-radius: 15px;
+  max-width: 1400px; /* Increased max width */
+  margin: 40px auto 0 auto; /* 40px top margin, auto left and right */
+}
+
+
+.innovating-flight .left {
+  flex: 1;
+  padding-right: 30px; /* Increased padding between text and image */
+  color: #fff;
+  display:  flex ;
+  flex-direction: column;
+  justify-content: center; /* Centers text vertically */
+}
+
+.innovating-flight h2 {
+  font-size: 30px; /* Slightly larger font for the title */
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.innovating-flight h3 {
+  font-size: 20px; /* Slightly larger font for the subtitle */
+  margin-bottom: 25px;
+  color: #c1c8d1;
+}
+
+.innovating-flight p {
+  font-size: 18px; /* Increased font size for readability */
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+.innovating-flight .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innovating-flight .right img {
+  width: 100%;
+  max-width: 600px; /* Increased maximum width for the image */
+  border-radius: 20px; /* Rounded corners for the image */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Lifting effect with rounded corners */
+}
+
+/* Ensuring the shadow aligns with rounded corners */
+.innovating-flight .right img {
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Lifted shadow effect */
+  border-radius: 20px; /* Ensuring shadow matches rounded corners */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .innovating-flight {
+      flex-direction: column;
+      padding: 30px 20px;
+  }
+
+  .innovating-flight .left {
+      padding-right: 0;
+      text-align: center;
+  }
+
+  .innovating-flight .right img {
+      max-width: 90%;
+  }
+}
+
+/* End of ABOUT section */
+
+
+/* Contact Section Styling */
+.contact-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Left section with image and overlay text */
+.contact-section .left {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-section .left img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+
+.contact-section .left h2 {
+  position: absolute;
+  top: 2%; /* Center vertically */
+  left: 5%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center using transform */
+  font-size: 43px;
+  font-weight: bold;
+  line-height: 1.4;
+  text-align: center;
+   background: rgba(255, 255, 255, 0.8);
+  max-width: 90%; /* Slightly reduce width to fit text better */
+  padding: 10px 15px;
+  border-radius: 10px;
+  
+  /* Gradient color with full opacity */
+  background: linear-gradient(to right, #E7B841, #4CC5E6);
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  background-clip: text;
+}
+
+/* Dark transparent background behind the text */
+/* .contact-section .left h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* Adjust opacity for readability */
+  /* border-radius: 10px;
+  z-index: -1; /* Places the overlay behind the text */
+/* } */ 
+
+/* Right section with contact form */
+.contact-section .right {
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
+  background: #1A3A5F;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Text Effect for Right Section Heading */
+.contact-section .right h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #E7B841, #4CC5E6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-section .right form {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.contact-section .right input[type="text"], 
+.contact-section .right textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #35C7FF;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Ensure placeholder text is visible */
+.contact-section .right input[type="text"]::placeholder,
+.contact-section .right textarea::placeholder {
+  color: #000000;
+  opacity: 0.8;
+}
+
+/* Ensure submit button text is visible */
+.contact-section .submit-btn {
+  width: 50%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: #35C7FF;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Hover effect for submit button */
+.contact-section .submit-btn:hover {
+  background-color: #29A6D6;
+  color: #FFFFFF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-section .left, .contact-section .right {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .contact-section .left h2 {
+    font-size: 22px;
+  }
+
+  .contact-section .right h2 {
+    font-size: 20px;
+  }
+}
+
+
+
+/* END OF CONTACT SECTION */
+
+/* Styling for the inventors section */
+.inventors {
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #3a3d65, #57a7b6);
+}
+
+.inventors .header {
+  margin-bottom: 40px;
+}
+
+.inventors .header h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+}
+
+.inventors .header h4 {
+  font-size: 18px;
+  color: #333;
+  font-weight: normal;
+}
+
+/* Profile styling */
+.inventors .profile {
+  display: inline-block;
+  width: 280px;
+  margin: 0 30px;
+  text-align: center;
+}
+
+/* Profile image with overlay container, initially circular */
+.inventors .profile .image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Circle shape */
+  overflow: hidden;
+  margin: 0 auto 20px;
+  cursor: pointer;
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.inventors .profile .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay styling for info text */
+.inventors .profile .image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover effect: change shape to square with rounded corners and show overlay */
+.inventors .profile .image-container:hover {
+  width: 250px;               /* Expands width */
+  height: 250px;              /* Expands height */
+  border-radius: 15px;        /* Changes to square with rounded corners */
+}
+
+.inventors .profile .image-container:hover .overlay {
+  opacity: 1;                 /* Shows overlay on hover */
+  font-size: 22px;            /* Increases font size for readability */
+}
+
+/* Profile Name and Title styling */
+.inventors .profile h4 {
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+  margin: 0;
+}
+
+.inventors .profile h4 span {
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .inventors .profile {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .inventors .profile .image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .inventors .profile img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+
+/* END OF INVENTORS SECTION */
+
+/* General Footer Styling */
+.FOOTER {
+  background: linear-gradient(135deg, #3a3d65, #57a7b6);
+  color: #fff;
+  padding: 100px ;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Centered Logo at the Top */
+.logo-center {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-center img {
+  width: 500px;
+}
+
+/* Flex layout for left, center, and right sections */
+.footer-section {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 30%;
+  margin: 20px 0;
+}
+
+
+
+/* Left Section: Address and Contact Information */
+.left-links {
+  text-align: center; /* Center-align the text within the container */
+}
+
+.left-links h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.left-links p {
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.left-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.left-links a:hover {
+  text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social {
+  display: flex;
+  justify-content: center; /* Center-align the icons */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social img {
+  width: 35px;
+  height: 35px;
+}
+
+
+/* Center Section: Hours */
+.timings {
+  text-align: center;
+}
+
+.timings h3 {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+.timings p {
+  font-size: 17px;
+  margin: 4px 0;
+}
+
+/* Right Section: Navigation Links */
+.right-links {
+  text-align: center; /* Center the text within the container */
+}
+
+.right-links ul {
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+}
+
+.right-links li {
+  margin: 9px 0; /* Add some space between each link for a cleaner look */
+}
+
+.right-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.right-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.footer-bottom .policies a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-bottom .policies a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-section {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+  }
+
+  .left-links, .timings, .right-links {
+      text-align: center;
+  }
+}
+
+/* END OF FOOTER */
